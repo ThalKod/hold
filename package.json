@@ -1,0 +1,19 @@
+{
+  "name": "hold",
+  "version": "1.0.0",
+  "description": "Hold is a Dapp, built with Ethereum, for HODLERs to lock ETH tokens and assets...",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThalKod/hold.git"
+  },
+  "author": "Thal Marcelin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThalKod/hold/issues"
+  },
+  "homepage": "https://github.com/ThalKod/hold#readme"
+}
