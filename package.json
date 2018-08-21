@@ -15,5 +15,13 @@
   "bugs": {
     "url": "https://github.com/ThalKod/hold/issues"
   },
-  "homepage": "https://github.com/ThalKod/hold#readme"
+  "homepage": "https://github.com/ThalKod/hold#readme",
+  "dependencies": {
+    "fs-extra": "^7.0.0",
+    "ganache-cli": "^6.1.8",
+    "jest": "^23.5.0",
+    "path": "^0.12.7",
+    "solc": "^0.4.24",
+    "web3": "^1.0.0-beta.35"
+  }
 }
