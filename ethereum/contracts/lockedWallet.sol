@@ -33,7 +33,7 @@ contract LockedWallet{
     
     
     function widthdraw() onlyReceiver public{
-        require( now >= endLockedTime, "time not yet elapsed");
+        require(now >= endLockedTime, "time not yet elapsed");
         msg.sender.transfer(address(this).balance);
     }
     

@@ -1,16 +1,14 @@
 import React from "react";
+import Head from 'next/head'
 
-import Menu from "../components/Menu";
+import DashboardPage from "../components/DashBoardPage";
 
-class DashboardPage extends React.Component{
-    render(){
-        return (
-            <div>
-                <Menu />
-                <h1>Dashboard Page</h1>
-            </div>  
-        );
-    }
-}
+export default ()=>(
+    <div>
+        <Head>
+            <link href="/static/styles.css" rel="stylesheet" />
+        </Head>
+        <DashboardPage />
+    </div>
+);
 
-export default DashboardPage;
