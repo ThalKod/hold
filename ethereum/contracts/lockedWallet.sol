@@ -22,7 +22,7 @@ contract lockedWallet{
         msg.sender.transfer(address(this).balance);
     }
     
-    function getInfo()  public participant  view returns(uint, address, address, uint, uint){
+    function getInfo() public view returns(uint, address, address, uint, uint){
         return(address(this).balance, creatorAddress, receiverAddress, endLockedTime, createdAt);
     }
 
@@ -30,11 +30,5 @@ contract lockedWallet{
         require(msg.sender == receiverAddress, "must be the receiver");
         _;
     }
-    
-    modifier participant{
-        require(msg.sender == receiverAddress || msg.sender == creatorAddress, "not a participant");
-        _;
-    }
-    
-    
+
 }
