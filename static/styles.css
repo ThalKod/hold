@@ -1,3 +1,53 @@
-.red{
-    color: red;
+/* Base */
+
+* {
+    box-sizing: border-box;
+    margin: 0px;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    color: #333333;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.6;
+    padding: 0px;
+}
+
+.isActive{
+    background: #333333;
+}
+
+/* Menu styles */
+
+.menu {
+    width: 300px;
+    margin: 0px;
+	height: calc(100vh);
+    background:#b8bcb8;
+    float: left;
+}
+
+.menu_link{
+    font-weight: 600;
+    display: block;
+    padding: 1em 2.5em 1em 1.5em;
+    text-decoration: none;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.menu_link:hover{
+    background: #333333;
+    -webkit-transition: background 1.1s;
+}
+
+.logo{
+    width: 100%;
+    height: 155px;
+    border: 1px solid black;
+    background: white;
 }

@@ -5,19 +5,19 @@ import { Link } from "../routes";
 class Menu extends React.Component{
     render(){
         return(
-            <div>
-                <div>
+            <div className="menu">
+                <div className="logo">
                     <img src="" />
                 </div>
                 <div>
-                    <Link to="/">
-                        <a>Dashboard</a>
+                    <Link  to="/">
+                        <a className="menu_link isActive">Dashboard</a>
+                    </Link>
+                    <Link  to="/">
+                        <a className="menu_link">Lock Funds</a>
                     </Link>
                     <Link to="/">
-                        <a>Lock Funds</a>
-                    </Link>
-                    <Link to="/">
-                        <a>Withdraw</a>
+                        <a className="menu_link">Withdraw</a>
                     </Link>
                 </div>
             </div>
