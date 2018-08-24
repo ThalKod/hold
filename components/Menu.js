@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link } from "../routes";
+import Link  from "./ActiveLink";
 
 class Menu extends React.Component{
     render(){
@@ -10,13 +10,13 @@ class Menu extends React.Component{
                     <img src="" />
                 </div>
                 <div>
-                    <Link  to="/">
-                        <a className="menu_link isActive">Dashboard</a>
+                    <Link activeClassName="isActive"  href="/">
+                        <a className="menu_link">Dashboard</a>
                     </Link>
-                    <Link  to="/">
+                    <Link activeClassName="isActive" href="/lock">
                         <a className="menu_link">Lock Funds</a>
                     </Link>
-                    <Link to="/">
+                    <Link activeClassName="isActive" href="/">
                         <a className="menu_link">Withdraw</a>
                     </Link>
                 </div>

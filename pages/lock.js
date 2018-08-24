@@ -1,10 +1,10 @@
 import React from "react";
 
 import Layout from "../components/Layout";
-import DashboardPage from "../components/DashBoardPage";
+import LockFundsPage from "../components/LockFundsPage";
 
 export default ()=>(
    <Layout>
-        <DashboardPage />
+        <LockFundsPage />
    </Layout>
 );
