@@ -21,6 +21,12 @@ body {
     background: #333333;
 }
 
+.content-container{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
 /* Menu styles */
 
 .menu {
@@ -50,4 +56,18 @@ body {
     height: 155px;
     border: 1px solid black;
     background: white;
+}
+
+/* page_header title */
+.page_header{
+    text-align: center;
+    background: #f7f7f7;
+    padding: 15px 0;
+    margin-bottom: 75px;
+    height: 150px;
+}
+
+.page-header__title{
+    margin-top: 40px;
+    font-weight: 300;
 }
