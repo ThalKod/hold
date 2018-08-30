@@ -4,15 +4,17 @@ import web3 from "../ethereum/web3";
 import 'react-dates/initialize';
 import { SingleDatePicker } from "react-dates";
 import factoryWallet from "../ethereum/factoryWallet";
+import { Router } from "../routes";
 
 
 export default class LockFundsPage extends React.Component{
 
     state = {
         address: "",
-        date: moment(),
+        date: moment().add("1", "days"),
         focused: false,
-        amount: ""
+        amount: "",
+        error: "",
     }
 
     async componentDidMount(){
@@ -40,8 +42,14 @@ export default class LockFundsPage extends React.Component{
 
     onSubmit = async (e)=>{
         e.preventDefault();
-        if(!this.state.address || !this.state.amount){
+
+        if(!this.state.address){
+            this.setState({ error: "You must provide an address" })
             return console.log("provide address and amount");
+        }else if(!this.state.amount){
+            this.setState({ error: "You must provide an amount" })
+        }else{
+            this.setState({ error: ""});
         }
 
         try{
@@ -50,10 +58,9 @@ export default class LockFundsPage extends React.Component{
                 from: this.state.address,
                 value: web3.utils.toWei(this.state.amount, "ether")
             });
-            
-            console.log("Wallet create");
-        }catch(err){
-            console.log(err);
+            Router.push("/");
+        }catch(error){
+            this.setState({ error: error.message });
         }   
         
     }
@@ -68,6 +75,7 @@ export default class LockFundsPage extends React.Component{
                 </div>
                 <div className="centered">
                     <form className="form" onSubmit={this.onSubmit}>
+                    {this.state.error && <p className="form__error">{this.state.error}</p>}
                         <input 
                             type="text"
                             placeholder="Receiver Address..."
@@ -89,6 +97,7 @@ export default class LockFundsPage extends React.Component{
                             focused={this.state.focused}
                             onFocusChange={this.onFocusChange}
                             numberOfMonths={1}
+                            isOutsideRange={date => date + 1 < moment()}
                             placeholder="Unlock Time"
                         />
                         <div>
