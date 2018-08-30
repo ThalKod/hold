@@ -44,6 +44,8 @@ export default class LockFundsPage extends React.Component{
                             placeholder="Receiver Address..."
                             className="text-input"
                             autoFocus
+                            value={this.state.address}
+                            onChange={e =>this.setState({ address: e.target.value})}
                         />
                         <input 
                             type="text"
