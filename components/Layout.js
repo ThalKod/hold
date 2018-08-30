@@ -7,6 +7,7 @@ export default (props)=>(
     <div>
         <Head>
             <link href="/static/styles.css" rel="stylesheet" />
+            <link href="/static/_datepicker.css" rel="stylesheet" />
         </Head>
         
         <Menu />

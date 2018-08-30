@@ -27,6 +27,11 @@ body {
     justify-content: center;
 }
 
+.centered{
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 /* Menu styles */
 
 .menu {
@@ -58,7 +63,7 @@ body {
     background: white;
 }
 
-/* page_header title */
+/* Page Header */
 .page_header{
     text-align: center;
     background: #f7f7f7;
@@ -70,4 +75,51 @@ body {
 .page-header__title{
     margin-top: 40px;
     font-weight: 300;
+}
+
+
+/* Text Input */
+.text-input{
+    border: 1px solid #cacccd;
+    height: 50px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    padding: 1.2rem;
+}
+
+.select{
+    border: 1px solid #cacccd;
+    height: 50px;
+    font-size: 1.8rem;
+    font-weight: 300;
+    padding: 1.2rem;
+}
+
+/* Form */
+
+.form{
+    display: flex;
+    flex-direction: column;
+}
+
+.form > *{
+    margin-bottom: 1.6rem
+}
+
+.form__error{
+    margin: 0 0 1.6rem 0;
+    font-style: italic;
+}
+
+/* Button */
+.button{
+    color: white;
+    background: #4e5166;
+    border: none;
+    padding: 1.2rem;
+    font-weight: 300;
+    font-size: 1.8rem;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
 }
