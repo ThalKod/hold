@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import web3 from "../ethereum/web3";
 import 'react-dates/initialize';
 import { SingleDatePicker } from "react-dates";
@@ -9,8 +10,9 @@ export default class LockFundsPage extends React.Component{
 
     state = {
         address: "",
-        date: null,
-        focused: null
+        date: moment(),
+        focused: false,
+        amount: ""
     }
 
     async componentDidMount(){
@@ -28,6 +30,13 @@ export default class LockFundsPage extends React.Component{
             this.setState(()=>({ date }));
         }
     };
+
+    onAmountChange = (e)=>{
+        const amount = e.target.value;
+        if(!amount || amount.match(/^\d{1,}(\.\d{0,8})?$/)){
+            this.setState(()=>({ amount }));
+        }
+    }
 
     render(){
         return(
@@ -49,8 +58,10 @@ export default class LockFundsPage extends React.Component{
                         />
                         <input 
                             type="text"
-                            placeholder="Amount"
+                            placeholder="Amount(ETH)"
                             className="text-input"
+                            value={this.state.amount}
+                            onChange={this.onAmountChange}
                         />
                         <SingleDatePicker
                             date={this.state.date}
@@ -58,7 +69,6 @@ export default class LockFundsPage extends React.Component{
                             focused={this.state.focused}
                             onFocusChange={this.onFocusChange}
                             numberOfMonths={1}
-                            isOutsideRange={(day) => false }
                             placeholder="Unlock Time"
                         />
                         <div>
