@@ -38,13 +38,24 @@ export default class LockFundsPage extends React.Component{
         }
     }
 
-    onSubmit = (e)=>{
+    onSubmit = async (e)=>{
         e.preventDefault();
         if(!this.state.address || !this.state.amount){
             return console.log("provide address and amount");
         }
 
+        try{
 
+            await factoryWallet.methods.createWallet(this.state.address, this.state.date.unix()).send({
+                from: this.state.address,
+                value: web3.utils.toWei(this.state.amount, "ether")
+            });
+            
+            console.log("Wallet create");
+        }catch(err){
+            console.log(err);
+        }   
+        
     }
 
     render(){
