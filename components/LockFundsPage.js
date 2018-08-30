@@ -3,7 +3,7 @@ import moment from "moment";
 import web3 from "../ethereum/web3";
 import 'react-dates/initialize';
 import { SingleDatePicker } from "react-dates";
-
+import factoryWallet from "../ethereum/factoryWallet";
 
 
 export default class LockFundsPage extends React.Component{
@@ -38,6 +38,15 @@ export default class LockFundsPage extends React.Component{
         }
     }
 
+    onSubmit = (e)=>{
+        e.preventDefault();
+        if(!this.state.address || !this.state.amount){
+            return console.log("provide address and amount");
+        }
+
+
+    }
+
     render(){
         return(
             <div>
@@ -47,7 +56,7 @@ export default class LockFundsPage extends React.Component{
                     </div>
                 </div>
                 <div className="centered">
-                    <form className="form" action="" onSubmit={this.onSubmit}>
+                    <form className="form" onSubmit={this.onSubmit}>
                         <input 
                             type="text"
                             placeholder="Receiver Address..."

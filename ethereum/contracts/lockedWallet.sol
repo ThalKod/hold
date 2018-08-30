@@ -4,9 +4,11 @@ pragma solidity ^0.4.17;
 contract FactoryWallet{
     address[] public listOfWallets;
     
-    function createWallet(address receiver, uint timestamp) public{
+    function createWallet(address receiver, uint timestamp) public payable{
         address newWallet = new LockedWallet(msg.sender, receiver, timestamp);
-        
+        if(msg.value > 0){
+            address(newWallet).transfer(msg.value);
+        }
         listOfWallets.push(newWallet);
     }
     
