@@ -2,6 +2,7 @@ import React from "react";
 import web3 from "../ethereum/web3";
 
 import factoryWallet from "../ethereum/factoryWallet";
+import lockedWallet from "../ethereum/lockedWallet";
 
 class DashboardPage extends React.Component{
 
@@ -15,10 +16,21 @@ class DashboardPage extends React.Component{
         const account = await web3.eth.getAccounts();
         const balance = await web3.eth.getBalance(account[0]);
 
-        const wallets =  await factoryWallet.methods.getWallets().call();
+        const walletsList =  await factoryWallet.methods.getWallets().call();
+
+        walletsList.forEach((walletAddress)=>{
+            this.isReceiver(walletAddress);
+        });
 
 
         this.setState({ account, balance: web3.utils.fromWei(balance, "ether")});
+    }
+
+    isReceiver = async (address)=>{
+        const walletInstance = lockedWallet(address);
+        const wallet = await walletInstance.methods.isReceiver().call();
+
+        console.log(wallet);
     }
 
     render(){
