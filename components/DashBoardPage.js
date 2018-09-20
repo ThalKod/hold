@@ -16,21 +16,19 @@ class DashboardPage extends React.Component{
         const account = await web3.eth.getAccounts();
         const balance = await web3.eth.getBalance(account[0]);
 
-        const walletsList =  await factoryWallet.methods.getWallets().call();
+        const walletsList =  await factoryWallet.methods.getWalletsByReceiver(account[0]).call();
 
-        walletsList.forEach((walletAddress)=>{
-            this.isReceiver(walletAddress);
+        walletsList.forEach(async (wallet)=>{
+            const walletInstance = lockedWallet(wallet);
+            const info = await walletInstance.methods.getInfo().call();
+            this.setState((state)=>{
+                return {
+                    lockedFund: state.lockedFund + parseFloat(web3.utils.fromWei(info[0].toString(), "ether"))
+                };
+            })
         });
 
-
         this.setState({ account, balance: web3.utils.fromWei(balance, "ether")});
-    }
-
-    isReceiver = async (address)=>{
-        const walletInstance = lockedWallet(address);
-        const wallet = await walletInstance.methods.isReceiver().call();
-
-        console.log(wallet);
     }
 
     render(){
@@ -38,6 +36,7 @@ class DashboardPage extends React.Component{
             <div>
                 <h1>Account : {this.state.account}</h1>
                 <h1>balance : {this.state.balance}</h1>
+                <h1>Locked Fund : {this.state.lockedFund}</h1>
             </div>  
         );
     }
