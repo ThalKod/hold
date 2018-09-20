@@ -10,12 +10,12 @@ class DashboardPage extends React.Component{
         account: "",
         balance: 0,
         lockedFund: 0,
+        selectValue: "",
     };
 
     async componentDidMount(){
         const account = await web3.eth.getAccounts();
         const balance = await web3.eth.getBalance(account[0]);
-
         const walletsList =  await factoryWallet.methods.getWalletsByReceiver(account[0]).call();
 
         walletsList.forEach(async (wallet)=>{
@@ -28,15 +28,49 @@ class DashboardPage extends React.Component{
             })
         });
 
-        this.setState({ account, balance: web3.utils.fromWei(balance, "ether")});
+        this.setState({account, selectValue: account[0], balance: web3.utils.fromWei(balance, "ether")});
     }
 
     render(){
         return (
             <div>
-                <h1>Account : {this.state.account}</h1>
-                <h1>balance : {this.state.balance}</h1>
-                <h1>Locked Fund : {this.state.lockedFund}</h1>
+                <div className="page_header">
+                    <div className="content-container">   
+                        <h1 className="page-header__title">Dashboard</h1>   
+                    </div>
+                </div>
+
+                <div className="dashContainer">
+                    <input 
+                        type="text"
+                        placeholder="Your address..."
+                        className="text-input large"
+                        value={this.state.account}
+                    />
+
+                    <div className="inline">
+                        <div>
+                            <div className="boxes white-bg padding15">
+                                <div className="center nodeco">
+                                    <h3>Address Balance</h3>
+                                    <h2>{this.state.balance} ETH</h2>
+                                </div>
+                            </div>
+                            <div className="boxes white-bg padding15">
+                                <div className="center nodeco">
+                                    <h3>Locked Fund</h3>
+                                    <h2>{this.state.lockedFund} ETH</h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="table inline boxes white-bg padding15">
+                            <div className="center nodeco">
+                                <h3>Table temp</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>  
         );
     }

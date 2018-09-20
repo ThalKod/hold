@@ -10,7 +10,13 @@ export default (props)=>(
             <link href="/static/_datepicker.css" rel="stylesheet" />
         </Head>
         
-        <Menu />
-        {props.children}
+        <div>
+            <div>
+                <Menu />
+            </div>
+            <div>
+                {props.children}
+            </div>
+        </div>
     </div>
 );

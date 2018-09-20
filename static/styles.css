@@ -124,3 +124,51 @@ body {
     line-height: 1;
     text-decoration: none;
 }
+
+/* Select */
+.large {
+    width: 475px;
+    margin-bottom: 15px;
+}
+
+/* Boxes */
+
+.white-bg {
+	border-radius: 5px;
+	border: 1px solid #dbdde0
+}
+
+.padding15 {
+    padding: 1px 10px 15px;
+    margin-left:15px;
+}
+
+.center {
+	margin: auto;
+	text-align: center
+}
+
+.boxes {
+    width: 350px;
+    height: 120px;
+    padding: 15px;
+    margin-bottom: 50px;
+    margin-left: 0px;
+}
+
+.dashContainer {
+    max-width: 900px;
+    margin-left: 300px;
+}
+
+.inline {
+    display: flex;
+}
+
+.table {
+    width: 350px;
+    height: 120px;
+    padding: 15px;
+    margin-bottom: 50px;
+    margin-left: 30px;
+}
