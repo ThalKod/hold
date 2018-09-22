@@ -21,7 +21,7 @@
   "homepage": "https://github.com/ThalKod/hold#readme",
   "dependencies": {
     "@zeit/next-css": "^0.2.0",
-    "@zeit/next-sass": "^0.2.0",
+    "@zeit/next-sass": "^1.0.1",
     "css-loader": "^1.0.0",
     "fs-extra": "^7.0.0",
     "ganache-cli": "^6.1.8",
