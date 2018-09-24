@@ -6,8 +6,9 @@ import Menu from "./Menu";
 export default (props)=>(
     <div>
         <Head>
-            <link href="/static/styles.css" rel="stylesheet" />
-            <link href="/static/_datepicker.css" rel="stylesheet" />
+            <link rel="stylesheet" href="/static/styles.css"  />
+            <link rel="stylesheet" href="/static/_datepicker.css" />
+            <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.3/semantic.min.css"/>
         </Head>
         
         <div>

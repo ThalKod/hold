@@ -3,6 +3,7 @@ import web3 from "../ethereum/web3";
 
 import factoryWallet from "../ethereum/factoryWallet";
 import lockedWallet from "../ethereum/lockedWallet";
+import Table from "./Table";
 
 class DashboardPage extends React.Component{
 
@@ -64,11 +65,7 @@ class DashboardPage extends React.Component{
                             </div>
                         </div>
 
-                        <div className="table inline boxes white-bg padding15">
-                            <div className="center nodeco">
-                                <h3>Table temp</h3>
-                            </div>
-                        </div>
+                        <Table lassName="table" />
                     </div>
                 </div>
             </div>  
