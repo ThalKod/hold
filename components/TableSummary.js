@@ -2,31 +2,10 @@ import React from "react";
 import web3 from "../ethereum/web3";
 
 import { Table } from "semantic-ui-react";
-import lockedWallet from "../ethereum/lockedWallet";
 import WalletRow from "./WalletRow";
 
 
 export default class TableSummary extends React.Component {
-
-    constructor(props){
-        super(props);
-    }
-
-    state = {
-        walletDetails: this.props.wallets
-    }
-
-    componentDidMount = ()=>{
-        
-        // this.props.walletsList.forEach(async (wallet)=>{
-        //     const walletInstance = lockedWallet(wallet);
-        //     const info = await walletInstance.methods.getInfo().call();
-        //     console.log(info);
-        // });
-        // const walletInstance = lockedWallet(wallet);
-        // const info = await walletInstance.methods.getInfo().call();
-
-    }
 
     renderRow = ()=>{
         
@@ -34,13 +13,17 @@ export default class TableSummary extends React.Component {
             return <WalletRow 
                         key={index} 
                         amount={web3.utils.fromWei(wallet[0], "ether")} 
+                        receiver={wallet[2]}
+                        sender={wallet[1]}
+                        unlockDate={wallet[3]}
+                        lockDate={wallet[4]}
                     />
         })
     }
 
     render(){
 
-        const { Row, Header, HeaderCell, Body, Cell } = Table;
+        const { Row, Header, HeaderCell, Body} = Table;
 
         return (
             <div>
