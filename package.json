@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/ThalKod/hold#readme",
   "dependencies": {
-    "@zeit/next-css": "^0.2.0",
+    "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
     "css-loader": "^1.0.0",
     "fs-extra": "^7.0.0",
