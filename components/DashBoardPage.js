@@ -3,7 +3,7 @@ import web3 from "../ethereum/web3";
 
 import factoryWallet from "../ethereum/factoryWallet";
 import lockedWallet from "../ethereum/lockedWallet";
-import Table from "./Table";
+import TableSummary from "./TableSummary";
 
 class DashboardPage extends React.Component{
 
@@ -12,6 +12,7 @@ class DashboardPage extends React.Component{
         balance: 0,
         lockedFund: 0,
         selectValue: "",
+        walletDetails: []
     };
 
     async componentDidMount(){
@@ -24,15 +25,18 @@ class DashboardPage extends React.Component{
             const info = await walletInstance.methods.getInfo().call();
             this.setState((state)=>{
                 return {
-                    lockedFund: state.lockedFund + parseFloat(web3.utils.fromWei(info[0].toString(), "ether"))
+                    lockedFund: state.lockedFund + parseFloat(web3.utils.fromWei(info[0].toString(), "ether")),
+                    walletDetails: state.walletDetails.concat([info])
                 };
             })
         });
 
-        this.setState({account, selectValue: account[0], balance: web3.utils.fromWei(balance, "ether")});
+        
+        this.setState({account, selectValue: account[0], balance: web3.utils.fromWei(balance, "ether") });
     }
 
-    render(){
+    render(){  
+        
         return (
             <div>
                 <div className="page_header">
@@ -65,7 +69,7 @@ class DashboardPage extends React.Component{
                             </div>
                         </div>
 
-                        <Table lassName="table" />
+                        <TableSummary wallets={this.state.walletDetails} className="table" />
                     </div>
                 </div>
             </div>  
