@@ -11,6 +11,7 @@ export default class LockFundsPage extends React.Component{
 
     state = {
         address: "",
+        sendTo: "",
         date: moment().add("1", "days"),
         focused: false,
         amount: "",
@@ -54,7 +55,7 @@ export default class LockFundsPage extends React.Component{
 
         try{
 
-            await factoryWallet.methods.createWallet(this.state.address, this.state.date.unix()).send({
+            await factoryWallet.methods.createWallet(this.state.sendTo, this.state.date.unix()).send({
                 from: this.state.address,
                 value: web3.utils.toWei(this.state.amount, "ether")
             });
@@ -81,8 +82,8 @@ export default class LockFundsPage extends React.Component{
                             placeholder="Receiver Address..."
                             className="text-input"
                             autoFocus
-                            value={this.state.address}
-                            onChange={e =>this.setState({ address: e.target.value})}
+                            value={this.state.sendTo}
+                            onChange={e =>this.setState({ sendTo: e.target.value})}
                         />
                         <input 
                             type="text"

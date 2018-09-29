@@ -18,7 +18,7 @@ class WalletRow extends React.Component{
         return (
             <Row>
                 <Cell>{amount}</Cell>
-                <Cell>{receiver.slice(0, 8)}...</Cell>
+                <Cell>You</Cell>
                 <Cell>{sender.slice(0, 8)}...</Cell>
                 <Cell>{formatedLockDate}</Cell>
                 <Cell>{formatedUnlockDate}</Cell>
