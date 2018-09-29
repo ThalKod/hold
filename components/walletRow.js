@@ -4,6 +4,7 @@ import moment from "moment";
 
 class WalletRow extends React.Component{
 
+
     render(){
         const { Row, Cell } = Table;
         const { amount, receiver, sender, unlockDate, lockDate } = this.props;
@@ -11,18 +12,21 @@ class WalletRow extends React.Component{
         const formatedLockDate = moment.unix(parseInt(lockDate)).format("MMMM Do YYYY");
         const formatedUnlockDate = moment.unix(parseInt(unlockDate)).endOf('day').fromNow();
 
+        const canWithdraw = Math.round(Date.now() / 1000) >= parseInt(unlockDate);
+
+
         return (
             <Row>
                 <Cell>{amount}</Cell>
                 <Cell>{receiver.slice(0, 8)}...</Cell>
                 <Cell>{sender.slice(0, 8)}...</Cell>
-                <Cell>{formatedUnlockDate}</Cell>
                 <Cell>{formatedLockDate}</Cell>
+                <Cell>{formatedUnlockDate}</Cell>
                 <Cell>
                     <Button color="green">TopUp</Button>
                 </Cell>
                 <Cell>
-                    <Button color="red">Withdraw</Button>
+                    <Button disabled={!canWithdraw} color="red">Withdraw</Button>
                 </Cell>
             </Row>
         );

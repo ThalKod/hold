@@ -33,8 +33,8 @@ export default class TableSummary extends React.Component {
                             <HeaderCell>Amount(ETH)</HeaderCell>
                             <HeaderCell>Receiver</HeaderCell>
                             <HeaderCell>Creator</HeaderCell>
-                            <HeaderCell>Unlock Date</HeaderCell>
                             <HeaderCell>Lock Date</HeaderCell>
+                            <HeaderCell>Unlock Date</HeaderCell>
                             <HeaderCell>Top Up</HeaderCell>
                             <HeaderCell>Withdraw</HeaderCell>
                         </Row>

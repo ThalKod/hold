@@ -23,6 +23,7 @@ class DashboardPage extends React.Component{
         walletsList.forEach(async (wallet)=>{
             const walletInstance = lockedWallet(wallet);
             const info = await walletInstance.methods.getInfo().call();
+            console.log(info);
             this.setState((state)=>{
                 return {
                     lockedFund: state.lockedFund + parseFloat(web3.utils.fromWei(info[0].toString(), "ether")),
