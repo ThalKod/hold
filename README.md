@@ -1,0 +1,3 @@
+# Hold
+Hold is a Dapp, built with Ethereum, for HODLERs to lock ETH tokens and assets for a definite amount of time...
+(Building...)
