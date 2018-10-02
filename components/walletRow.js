@@ -18,7 +18,7 @@ class WalletRow extends React.Component{
         return (
             <Row>
                 <Cell>{amount}</Cell>
-                <Cell>You</Cell>
+                <Cell>Me</Cell>
                 <Cell>{sender.slice(0, 8)}...</Cell>
                 <Cell>{formatedLockDate}</Cell>
                 <Cell>{formatedUnlockDate}</Cell>
@@ -26,7 +26,9 @@ class WalletRow extends React.Component{
                     <Button color="green">TopUp</Button>
                 </Cell>
                 <Cell>
-                    <Button disabled={!canWithdraw} color="red">Withdraw</Button>
+                    {
+                        amount > 0 ? <Button disabled={!canWithdraw} color="red">Withdraw</Button> : "Empty !"
+                    }
                 </Cell>
             </Row>
         );
