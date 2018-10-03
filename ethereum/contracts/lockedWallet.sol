@@ -50,23 +50,13 @@ contract LockedWallet{
     function () public payable {}
     
     
-    function widthdraw() onlyReceiver public{
+    function widthdraw() public{
         require(now >= endLockedTime, "time not yet elapsed");
-        msg.sender.transfer(address(this).balance);
+        receiverAddress.transfer(address(this).balance);
     }
     
     function getInfo() public view returns(uint, address, address, uint, uint){
         return(address(this).balance, creatorAddress, receiverAddress, endLockedTime, createdAt);
     }
-    
-    function isReceiver() public view returns(bool){
-        return msg.sender == receiverAddress;
-    }
-
-    modifier onlyReceiver{
-        require(msg.sender == receiverAddress, "must be the receiver");
-        _;
-    }
-    
     
 }

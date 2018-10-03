@@ -1,9 +1,14 @@
 import React from "react";
 import { Table, Button } from "semantic-ui-react";
 import moment from "moment";
+import web3 from "../ethereum/web3";
+import lockedWallet from "../ethereum/lockedWallet";
 
 class WalletRow extends React.Component{
 
+    onWithdrawButtonClick = () =>{
+
+    }
 
     render(){
         const { Row, Cell } = Table;
@@ -13,7 +18,6 @@ class WalletRow extends React.Component{
         const formatedUnlockDate = moment.unix(parseInt(unlockDate)).endOf('day').fromNow();
 
         const canWithdraw = Math.round(Date.now() / 1000) >= parseInt(unlockDate);
-
 
         return (
             <Row>
@@ -27,7 +31,7 @@ class WalletRow extends React.Component{
                 </Cell>
                 <Cell>
                     {
-                        amount > 0 ? <Button disabled={!canWithdraw} color="red">Withdraw</Button> : "Empty !"
+                        amount > 0 ? <Button onClick={this.onWithdrawButtonClick} disabled={!canWithdraw} color="red">Withdraw</Button> : "Empty !"
                     }
                 </Cell>
             </Row>
