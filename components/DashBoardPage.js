@@ -20,6 +20,7 @@ class DashboardPage extends React.Component{
         const balance = await web3.eth.getBalance(account[0]);
         const walletsList =  await factoryWallet.methods.getWalletsByReceiver(account[0]).call();
 
+        // Get info for each wallet wich "account" is a receiver
         walletsList.forEach(async (wallet)=>{
             const walletInstance = lockedWallet(wallet);
             const info = await walletInstance.methods.getInfo().call();

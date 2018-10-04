@@ -54,7 +54,7 @@ export default class LockFundsPage extends React.Component{
         }
 
         try{
-
+            // Creating a locked Wallet
             await factoryWallet.methods.createWallet(this.state.sendTo, this.state.date.unix()).send({
                 from: this.state.address,
                 value: web3.utils.toWei(this.state.amount, "ether")
