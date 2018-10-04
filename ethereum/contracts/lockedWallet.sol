@@ -55,8 +55,8 @@ contract LockedWallet{
         receiverAddress.transfer(address(this).balance);
     }
     
-    function getInfo() public view returns(uint, address, address, uint, uint){
-        return(address(this).balance, creatorAddress, receiverAddress, endLockedTime, createdAt);
+    function getInfo() public view returns(uint, address, address, uint, uint, address){
+        return(address(this).balance, creatorAddress, receiverAddress, endLockedTime, createdAt, address(this));
     }
     
 }

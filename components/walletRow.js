@@ -2,7 +2,7 @@ import React from "react";
 import { Table, Button } from "semantic-ui-react";
 import moment from "moment";
 import web3 from "../ethereum/web3";
-import lockedWallet from "../ethereum/lockedWallet";
+import factoryWallet from "../ethereum/factoryWallet";
 
 class WalletRow extends React.Component{
 
@@ -12,12 +12,14 @@ class WalletRow extends React.Component{
 
     render(){
         const { Row, Cell } = Table;
-        const { amount, receiver, sender, unlockDate, lockDate } = this.props;
+        const { amount, walletAddress, sender, unlockDate, lockDate } = this.props;
 
         const formatedLockDate = moment.unix(parseInt(lockDate)).format("MMMM Do YYYY");
         const formatedUnlockDate = moment.unix(parseInt(unlockDate)).endOf('day').fromNow();
 
         const canWithdraw = Math.round(Date.now() / 1000) >= parseInt(unlockDate);
+
+        console.log(walletAddress);
 
         return (
             <Row>

@@ -31,7 +31,6 @@ class DashboardPage extends React.Component{
                 };
             })
         });
-
         
         this.setState({account, selectValue: account[0], balance: web3.utils.fromWei(balance, "ether") });
     }
@@ -51,7 +50,7 @@ class DashboardPage extends React.Component{
                         type="text"
                         placeholder="Your address..."
                         className="text-input large"
-                        value={this.state.account}
+                        defaultValue={this.state.account}
                     />
 
                     <div className="inline">

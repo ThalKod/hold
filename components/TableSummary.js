@@ -17,6 +17,7 @@ export default class TableSummary extends React.Component {
                         sender={wallet[1]}
                         unlockDate={wallet[3]}
                         lockDate={wallet[4]}
+                        walletAddress={wallet[5]}
                     />
         })
     }
