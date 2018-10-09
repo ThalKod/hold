@@ -11,7 +11,7 @@ class WalletRow extends React.Component{
 
         // Withdrawing from address to the receiver address
         try{
-            await walletInstance.methods.withdraw().call();
+            await walletInstance.methods.widthdraw().call();
         }catch(err){
             console.log(err);
         }
@@ -42,7 +42,7 @@ class WalletRow extends React.Component{
                 </Cell>
                 <Cell>
                     {
-                        amount > 0 ? <Button onClick={this.onWithdrawButtonClick} disabled={!canWithdraw} color="red">Withdraw</Button> : "Empty !"
+                        amount > 0.00001 ? <Button onClick={this.onWithdrawButtonClick} disabled={!canWithdraw} color="red">Withdraw</Button> : "Empty !"
                     }
                 </Cell>
             </Row>

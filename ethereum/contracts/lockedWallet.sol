@@ -52,7 +52,7 @@ contract LockedWallet{
     
     function widthdraw() public{
         require(now >= endLockedTime, "time not yet elapsed");
-        receiverAddress.transfer(address(this).balance);
+        receiverAddress.transfer(address(this).balance - (tx.gasprice * block.gaslimit));
     }
     
     function getInfo() public view returns(uint, address, address, uint, uint, address){
