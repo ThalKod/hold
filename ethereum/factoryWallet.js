@@ -3,7 +3,7 @@ import FactoryWallet from "./build/FactoryWallet.json";
 
 const instance = new web3.eth.Contract(
     JSON.parse(FactoryWallet.interface),
-    "0xD4F878d3f86965C7d7aB82108ef69ad689D15f7F"
+    "0xfB05fa943C5592c416620a40088b9d9dAcFE19D2"
 );
 
 export default instance;

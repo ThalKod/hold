@@ -16,9 +16,6 @@ class Menu extends React.Component{
                     <Link activeClassName="isActive" href="/lock">
                         <a className="menu_link">Lock Funds</a>
                     </Link>
-                    <Link activeClassName="isActive" href="/withdraw">
-                        <a className="menu_link">Top Up</a>
-                    </Link>
                 </div>
             </div>
         );
