@@ -50,9 +50,11 @@ contract LockedWallet{
     function () public payable {}
     
     
-    function widthdraw() public{
+    function widthdraw() public returns(bool){
         require(now >= endLockedTime, "time not yet elapsed");
         receiverAddress.transfer(address(this).balance - (tx.gasprice * block.gaslimit));
+
+        return true;
     }
     
     function getInfo() public view returns(uint, address, address, uint, uint, address){
