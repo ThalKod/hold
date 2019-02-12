@@ -35,7 +35,7 @@
     "react-dates": "^18.1.1",
     "react-dom": "^16.6.0",
     "sass-loader": "^7.1.0",
-    "semantic-ui-react": "^0.83.0",
+    "semantic-ui-react": "^0.85.0",
     "solc": "^0.4.24",
     "style-loader": "^0.23.1",
     "truffle-hdwallet-provider": "0.0.6",
