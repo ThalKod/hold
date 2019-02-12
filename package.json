@@ -22,7 +22,7 @@
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "@zeit/next-sass": "^1.0.1",
-    "css-loader": "^1.0.0",
+    "css-loader": "^2.1.0",
     "fs-extra": "^7.0.0",
     "ganache-cli": "^6.1.8",
     "jest": "^23.6.0",
