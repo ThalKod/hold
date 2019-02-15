@@ -33,7 +33,7 @@
     "path": "^0.12.7",
     "react": "^16.6.0",
     "react-dates": "^18.1.1",
-    "react-dom": "^16.6.0",
+    "react-dom": "^16.8.2",
     "sass-loader": "^7.1.0",
     "semantic-ui-react": "^0.83.0",
     "solc": "^0.4.24",
